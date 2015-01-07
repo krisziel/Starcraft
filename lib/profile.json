@@ -1,0 +1,162 @@
+{
+  "id" : 6117903,
+  "realm" : 1,
+  "displayName" : "lIBARCODEIl",
+  "clanName" : "BARCODE 4 LYFE",
+  "clanTag" : "lIllI",
+  "profilePath" : "/profile/6117903/1/lIBARCODEIl/",
+  "portrait" : {
+    "x" : 0,
+    "y" : 0,
+    "w" : 90,
+    "h" : 90,
+    "offset" : 0,
+    "url" : "http://media.blizzard.com/sc2/portraits/4-90.jpg"
+  },
+  "career" : {
+    "primaryRace" : "PROTOSS",
+    "league" : "PLATINUM",
+    "terranWins" : 0,
+    "protossWins" : 27,
+    "zergWins" : 0,
+    "highest1v1Rank" : "PLATINUM",
+    "highestTeamRank" : "PLATINUM",
+    "seasonTotalGames" : 39,
+    "careerTotalGames" : 83
+  },
+  "swarmLevels" : {
+    "level" : 12,
+    "terran" : {
+      "level" : 0,
+      "totalLevelXP" : 5000,
+      "currentLevelXP" : 0
+    },
+    "zerg" : {
+      "level" : 0,
+      "totalLevelXP" : 5000,
+      "currentLevelXP" : 0
+    },
+    "protoss" : {
+      "level" : 12,
+      "totalLevelXP" : 165000,
+      "currentLevelXP" : 17247
+    }
+  },
+  "campaign" : { },
+  "season" : {
+    "seasonId" : 20,
+    "seasonNumber" : 4,
+    "seasonYear" : 2014,
+    "totalGamesThisSeason" : 39,
+    "stats" : [ {
+      "type" : "1v1",
+      "wins" : 2,
+      "games" : 5
+      }, {
+        "type" : "2v2",
+        "wins" : 2,
+        "games" : 3
+        }, {
+          "type" : "3v3",
+          "wins" : 12,
+          "games" : 15
+          }, {
+            "type" : "4v4",
+            "wins" : 8,
+            "games" : 12
+            } ]
+          },
+          "rewards" : {
+            "selected" : [ 18730036, 656055948, 1333792768, 1500394717, 1751841167, 2009110693, 2184379176, 2359737029, 2820704051, 3065782512, 3673336716, 3717180683, 3979921667, 4067220888 ],
+            "earned" : [ 637508413, 983487403, 1159285604, 1453233559, 1467565626, 1605367309, 1750262021, 2184379176, 2419802213, 2646575556, 3319454886, 3369138675, 3484380374, 4130543639, 4179780094 ]
+          },
+          "achievements" : {
+            "points" : {
+              "totalPoints" : 240,
+              "categoryPoints" : {
+                "4325382" : 0,
+                "4325380" : 60,
+                "4325408" : 0,
+                "4325379" : 0,
+                "4325410" : 0,
+                "4325377" : 180
+              }
+            },
+            "achievements" : [ {
+              "achievementId" : 91475320766526,
+              "completionDate" : 1418881399
+              }, {
+                "achievementId" : 91475035553806,
+                "completionDate" : 1416464387
+                }, {
+                  "achievementId" : 91475320766700,
+                  "completionDate" : 1416462784
+                  }, {
+                    "achievementId" : 91475320766633,
+                    "completionDate" : 1416462784
+                    }, {
+                      "achievementId" : 91475320766542,
+                      "completionDate" : 1416386958
+                      }, {
+                        "achievementId" : 91475035553804,
+                        "completionDate" : 1416385398
+                        }, {
+                          "achievementId" : 91475320767223,
+                          "completionDate" : 1415684743
+                          }, {
+                            "achievementId" : 91475320767577,
+                            "completionDate" : 1415684743
+                            }, {
+                              "achievementId" : 91475035553798,
+                              "completionDate" : 1415525629
+                              }, {
+                                "achievementId" : 91475320766710,
+                                "completionDate" : 1415524058
+                                }, {
+                                  "achievementId" : 91475035553829,
+                                  "completionDate" : 1415341051
+                                  }, {
+                                    "achievementId" : 91475035553797,
+                                    "completionDate" : 1415339988
+                                    }, {
+                                      "achievementId" : 91475320766489,
+                                      "completionDate" : 1415156171
+                                      }, {
+                                        "achievementId" : 91475320768475,
+                                        "completionDate" : 1415081019
+                                        }, {
+                                          "achievementId" : 91475320766709,
+                                          "completionDate" : 1414383222
+                                          }, {
+                                            "achievementId" : 91475320766505,
+                                            "completionDate" : 1414381089
+                                            }, {
+                                              "achievementId" : 91475035553833,
+                                              "completionDate" : 1414378339
+                                              }, {
+                                                "achievementId" : 91475035553840,
+                                                "completionDate" : 1414377859
+                                                }, {
+                                                  "achievementId" : 91475035553821,
+                                                  "completionDate" : 1414377733
+                                                  }, {
+                                                    "achievementId" : 91475035553816,
+                                                    "completionDate" : 1414377225
+                                                    }, {
+                                                      "achievementId" : 91475320766707,
+                                                      "completionDate" : 1414374909
+                                                      }, {
+                                                        "achievementId" : 91475035553819,
+                                                        "completionDate" : 1414372514
+                                                        }, {
+                                                          "achievementId" : 91475035553844,
+                                                          "completionDate" : 1414372484
+                                                          }, {
+                                                            "achievementId" : 91475035553847,
+                                                            "completionDate" : 1414370939
+                                                            }, {
+                                                              "achievementId" : 91475035553828,
+                                                              "completionDate" : 1414370816
+                                                              } ]
+                                                            }
+                                                          }
