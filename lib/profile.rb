@@ -1,6 +1,4 @@
-require 'httparty'
-require 'json'
-require 'ladder'
+require 'starcraft'
 
 module Starcraft
 
@@ -8,7 +6,7 @@ module Starcraft
     attr_reader :name, :id, :realm, :display_name, :clan_name, :clan_tag, :profile_path, :portrait, :career, :season, :campaign, :swarm_levels, :rewards, :achievements, :ladders
 
     def initialize(name, id, realm)
-      profile_data = File.read('profile.json')
+      profile_data = File.read('lib/profile.json')
       @name = name
       @id = id
       @realm = realm
@@ -16,7 +14,19 @@ module Starcraft
       # get_profile_data(JSON.parse(HTTParty.get("https://us.api.battle.net/sc2/profile/#{id}/#{realm}/#{name}/?locale=en_US&apikey=u6asyvg57kuru6gbsu37wxbmfd4djv9y").body))
     end
 
-    def get_profile_data data
+    def self.basic_data data
+      @id = data['id']
+      @display_name = data['displayName']
+      @name = data['displayName']
+      @realm = data['realm']
+      @clan_name = data['clanName']
+      @clan_tag = data['clanTag']
+      @profile_path = data['profilePath']
+    end
+
+    def get_profile_data(name, id, realm)
+      data = JSON.parse(profile_data)
+      # data = JSON.parse(HTTParty.get("https://us.api.battle.net/sc2/profile/#{id}/#{realm}/#{name}/?locale=en_US&apikey=u6asyvg57kuru6gbsu37wxbmfd4djv9y").body)
       @display_name = data['displayName']
       @clan_name = data['clanName']
       @clan_tag = data['clanTag']
@@ -28,30 +38,26 @@ module Starcraft
       @swarm_levels = data['swarmLevels']
       @rewards = data['rewards']
       @achievements = data['achievements']
-      @ladders = get_ladder_data(self)
+      @ladders = nil
     end
 
-    def get_ladder_data profile
-      data = JSON.parse(HTTParty.get("https://us.api.battle.net/sc2/profile/#{id}/#{realm}/#{name}/ladders?locale=en_US&apikey=u6asyvg57kuru6gbsu37wxbmfd4djv9y").body)
-      Starcraft::Ladder.new(data)
+    def get_ladders
+      @ladders = get_ladder_data(@name, @id, @realm)
+    end
+
+    def get_ladder_data name, id, realm
+      data = JSON.parse(File.read('lib/ladderlist.json'))
+      # data = JSON.parse(HTTParty.get("https://us.api.battle.net/sc2/profile/#{id}/#{realm}/#{name}/ladders?locale=en_US&apikey=u6asyvg57kuru6gbsu37wxbmfd4djv9y").body)
+      ladders = []
+      data['currentSeason'].each do |ladder_type|
+        ladder_type.each do |ladder|
+          ladder[1].each do |this_ladder|
+            ladders.push(Starcraft::Ladder.new(this_ladder['ladderId'])) if ladder[0] == "ladder" && ladder[1].length > 0
+          end
+        end
+      end
     end
 
   end
 
 end
-
-# "id": 6117903,
-# "realm": 1,
-# "displayName": "lIBARCODEIl",
-# "clanName": "BARCODE 4 LYFE",
-# "clanTag": "lIllI",
-# "profilePath": "/profile/6117903/1/lIBARCODEIl/",
-# "portrait": {
-#   "x": 0,
-#   "y": 0,
-#   "w": 90,
-#   "h": 90,
-#   "offset": 0,
-#   "url": "http://media.blizzard.com/sc2/portraits/4-90.jpg"
-# },
-# "career":

@@ -1,5 +1,5 @@
 require 'spec_helper'
-require_relative '../lib/profile'
+require 'starcraft'
 
 describe Starcraft do
 
@@ -29,12 +29,16 @@ describe Starcraft do
   end
 
   it "expects profile ladder to current season" do
-    expect(profile.ladders["currentSeason"][0].class).to be(Ladder)
+    profile.get_ladders
+    expect(profile).to be(Ladder)
   end
 
-  it "expects the ladder to have a league and id" do
+  xit "expects the ladder to have a league and id" do
     expect(profile.ladders["currentSeason"][0].type).to be("FOURS")
     expect(profile.ladders["currentSeason"][0].id).to be(177930)
+  end
+
+  it "expects" do
   end
 
 end
