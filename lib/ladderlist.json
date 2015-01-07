@@ -1,6 +1,41 @@
 
 {
-  "currentSeason" : [ {
+  "currentSeason" : [{
+    "ladder" : [ {
+      "ladderName" : "Warp Prism Omega",
+      "ladderId" : 178045,
+      "division" : 1,
+      "rank" : 97,
+      "league" : "DIAMOND",
+      "matchMakingQueue" : "THREES",
+      "wins" : 5,
+      "losses" : 0,
+      "showcase" : true
+      } ],
+      "characters" : [ {
+        "id" : 1985621,
+        "realm" : 1,
+        "displayName" : "Black",
+        "clanName" : "",
+        "clanTag" : "",
+        "profilePath" : "/profile/1985621/1/Black/"
+        }, {
+          "id" : 6030221,
+          "realm" : 1,
+          "displayName" : "Cruelty",
+          "clanName" : "Scary Sea",
+          "clanTag" : "5CaRy",
+          "profilePath" : "/profile/6030221/1/Cruelty/"
+          }, {
+            "id" : 6117903,
+            "realm" : 1,
+            "displayName" : "lIBARCODEIl",
+            "clanName" : "BARCODE 4 LYFE",
+            "clanTag" : "lIllI",
+            "profilePath" : "/profile/6117903/1/lIBARCODEIl/"
+            } ],
+            "nonRanked" : [ ]
+            },{
     "ladder" : [ ],
     "characters" : [ {
       "id" : 834089,
@@ -64,41 +99,6 @@
                         "gamesPlayed" : 2
                         } ]
                         }, {
-                          "ladder" : [ {
-                            "ladderName" : "Warp Prism Omega",
-                            "ladderId" : 178045,
-                            "division" : 1,
-                            "rank" : 97,
-                            "league" : "DIAMOND",
-                            "matchMakingQueue" : "THREES",
-                            "wins" : 5,
-                            "losses" : 0,
-                            "showcase" : true
-                            } ],
-                            "characters" : [ {
-                              "id" : 1985621,
-                              "realm" : 1,
-                              "displayName" : "Black",
-                              "clanName" : "",
-                              "clanTag" : "",
-                              "profilePath" : "/profile/1985621/1/Black/"
-                              }, {
-                                "id" : 6030221,
-                                "realm" : 1,
-                                "displayName" : "Cruelty",
-                                "clanName" : "Scary Sea",
-                                "clanTag" : "5CaRy",
-                                "profilePath" : "/profile/6030221/1/Cruelty/"
-                                }, {
-                                  "id" : 6117903,
-                                  "realm" : 1,
-                                  "displayName" : "lIBARCODEIl",
-                                  "clanName" : "BARCODE 4 LYFE",
-                                  "clanTag" : "lIllI",
-                                  "profilePath" : "/profile/6117903/1/lIBARCODEIl/"
-                                  } ],
-                                  "nonRanked" : [ ]
-                                  }, {
                                     "ladder" : [ ],
                                     "characters" : [ {
                                       "id" : 5535726,

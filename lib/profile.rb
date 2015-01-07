@@ -38,17 +38,37 @@ module Starcraft
     end
 
     def get_ladders
-      @ladders = get_ladder_data(@name, @id, @realm)
+      @ladders = basic_ladder_data
     end
 
-    def get_ladder_data name, id, realm
+    def basic_ladder_data
       data = JSON.parse(File.read('lib/ladderlist.json'))
-      # data = JSON.parse(HTTParty.get("https://us.api.battle.net/sc2/profile/#{id}/#{realm}/#{name}/ladders?locale=en_US&apikey=u6asyvg57kuru6gbsu37wxbmfd4djv9y").body)
+      # data = JSON.parse(HTTParty.get("https://us.api.battle.net/sc2/profile/#{@id}/#{@realm}/#{@display_name}/ladders?locale=en_US&apikey=u6asyvg57kuru6gbsu37wxbmfd4djv9y").body)
+      ladders = []
+      data['currentSeason'].each do |ladder_arr|
+        next if ladder_arr['ladder'].length <= 0
+        ladder_arr['ladder'].each do |ladder|
+          ladder_data = Starcraft::Ladder.new
+          ladder['characters'] = ladder_arr['characters']
+          ladder_data.basic_ladder ladder
+          ladders.push(ladder_data)
+        end
+      end
+      @ladders = ladders
+    end
+
+    def
+
+    def full_ladder_data
+      data = JSON.parse(File.read('lib/ladderlist.json'))
+      # data = JSON.parse(HTTParty.get("https://us.api.battle.net/sc2/profile/#{@id}/#{@realm}/#{@display_name}/ladders?locale=en_US&apikey=u6asyvg57kuru6gbsu37wxbmfd4djv9y").body)
       ladders = []
       data['currentSeason'].each do |ladder_type|
         ladder_type.each do |ladder|
           ladder[1].each do |this_ladder|
-            ladders.push(Starcraft::Ladder.new(this_ladder['ladderId'])) if ladder[0] == "ladder" && ladder[1].length > 0
+            ladder_data = Starcraft::Ladder.new
+            ladder_data.full_ladder(this_ladder['ladderId'])
+            ladders.push(ladder_data) if ladder[0] == "ladder" && ladder[1].length > 0
           end
         end
       end

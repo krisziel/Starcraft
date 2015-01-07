@@ -30,17 +30,20 @@ describe Starcraft do
     expect(profile.career['highest1v1Rank']).to eq("PLATINUM")
   end
 
-  xit "expects profile ladder to current season" do
-    profile.get_ladders
-    expect(profile).to be(Ladder)
+  it "expects profile to have ladder" do
+    profile.basic_ladder_data
+    expect(profile.ladders[0].class).to be(Starcraft::Ladder)
   end
 
-  xit "expects the ladder to have a league and id" do
-    expect(profile.ladders["currentSeason"][0].type).to be("FOURS")
-    expect(profile.ladders["currentSeason"][0].id).to be(177930)
+  it "expects the ladder to have a league and id" do
+    profile.basic_ladder_data
+    expect(profile.ladders[0].mmq).to eq("THREES")
+    expect(profile.ladders[0].id).to eq(178045)
   end
 
-  xit "expects" do
+  it "expects the player to have five leagues" do
+    profile.basic_ladder_data
+    expect(profile.ladders.length).to eq(5)
   end
 
 end

@@ -3,6 +3,6 @@ require 'starcraft'
 
 describe Starcraft do
 
-  
+
 
 end
