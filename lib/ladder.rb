@@ -18,14 +18,18 @@ module Starcraft
     def create_ladder data
       teams = []
       data['ladderMembers'].each do |member|
-        profile = Starcraft::Profile.basic_data(member['character'])
+        profile = Starcraft::Profile.new
+        profile.basic_data(member['character'])
         if teams.last && member['joinTimestamp'] == teams.last.timestamp
           teams.last.character.push(profile)
         else
           member['character'] = [profile]
-          teams << Starcraft::Team.basic_data(member)
+          member['rank'] = teams.length + 1
+          team = Starcraft::Team.new(member)
+          teams << team
         end
       end
+      @teams = teams
     end
 
   end

@@ -3,31 +3,27 @@ require 'starcraft'
 module Starcraft
 
   class Profile
-    attr_reader :name, :id, :realm, :display_name, :clan_name, :clan_tag, :profile_path, :portrait, :career, :season, :campaign, :swarm_levels, :rewards, :achievements, :ladders
+    attr_reader :id, :realm, :display_name, :clan_name, :clan_tag, :profile_path, :portrait, :career, :season, :campaign, :swarm_levels, :rewards, :achievements, :ladders
 
-    def initialize(name, id, realm)
-      profile_data = File.read('lib/profile.json')
-      @name = name
-      @id = id
-      @realm = realm
-      get_profile_data(JSON.parse(profile_data))
-      # get_profile_data(JSON.parse(HTTParty.get("https://us.api.battle.net/sc2/profile/#{id}/#{realm}/#{name}/?locale=en_US&apikey=u6asyvg57kuru6gbsu37wxbmfd4djv9y").body))
+    def initialize
     end
 
-    def self.basic_data data
+    def basic_data data
       @id = data['id']
       @display_name = data['displayName']
-      @name = data['displayName']
       @realm = data['realm']
       @clan_name = data['clanName']
       @clan_tag = data['clanTag']
       @profile_path = data['profilePath']
     end
 
-    def get_profile_data(name, id, realm)
+    def full_data(name, id, realm)
+      profile_data = File.read('lib/profile.json')
       data = JSON.parse(profile_data)
       # data = JSON.parse(HTTParty.get("https://us.api.battle.net/sc2/profile/#{id}/#{realm}/#{name}/?locale=en_US&apikey=u6asyvg57kuru6gbsu37wxbmfd4djv9y").body)
       @display_name = data['displayName']
+      @id = data['id']
+      @realm = data['realm']
       @clan_name = data['clanName']
       @clan_tag = data['clanTag']
       @profile_path = data['profilePath']
