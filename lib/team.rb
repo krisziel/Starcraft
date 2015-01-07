@@ -9,19 +9,6 @@ module Starcraft
       basic_data data
     end
 
-    # def basic_info data
-    #   @name = data['ladderName']
-    #   @id = data['ladderId']
-    #   @division = data['division']
-    #   @rank = data['rank']
-    #   @league = data['league']
-    #   @mmq = data['matchMakingQueue']
-    #   @wins = data['wins']
-    #   @losses = data['losses']
-    #   @showcase = data['showcase']
-    #   @character = nil
-    # end
-
     def basic_data data
       @character = data['character']
       @timestamp = data['joinTimestamp']

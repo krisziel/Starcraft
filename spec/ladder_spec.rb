@@ -19,7 +19,17 @@ describe Starcraft do
     expect(ladder.teams[0].character.length).to eq(3)
   end
 
-  xit "expects a basic ladder to exist" do
+  it "expects a ladder team to have a profile" do
+    ladder.full_ladder(178045)
+    expect(ladder.teams[0].character[0].class).to be(Starcraft::Profile)
+  end
+
+  it "is able to create a full profile from a basic profile on a ladder" do
+    ladder.full_ladder(178045)
+    profile = Starcraft::Profile.new
+    profile.full_data(ladder.teams[0].character[0].display_name,ladder.teams[0].character[0].id,ladder.teams[0].character[0].realm)
+    expect(profile.display_name).to eq('lIBARCODEIl')
+    expect(profile.career['league']).to eq('PLATINUM')
   end
 
 end
