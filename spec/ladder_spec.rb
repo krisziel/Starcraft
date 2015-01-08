@@ -27,7 +27,8 @@ describe Starcraft do
   it "is able to create a full profile from a basic profile on a ladder" do
     ladder.full_ladder(178045)
     profile = Starcraft::Profile.new
-    profile.full_data(ladder.teams[0].character[0].display_name,ladder.teams[0].character[0].id,ladder.teams[0].character[0].realm)
+    character = ladder.teams[0].character[0]
+    profile.full_data(character.display_name,character.id,character.realm)
     expect(profile.display_name).to eq('lIBARCODEIl')
     expect(profile.career['league']).to eq('PLATINUM')
   end
