@@ -17,10 +17,14 @@ module Starcraft
       @profile_path = data['profilePath']
     end
 
-    def full_data(name, id, realm)
-      profile_data = File.read('lib/profile.json')
-      data = JSON.parse(profile_data)
-      # data = JSON.parse(HTTParty.get("https://us.api.battle.net/sc2/profile/#{id}/#{realm}/#{name}/?locale=en_US&apikey=u6asyvg57kuru6gbsu37wxbmfd4djv9y").body)
+    def full_data(name, id, realm, *url)
+      if url
+        # puts "https://us.api.battle.net/sc2/profile/#{id}/#{realm}/#{name}/?locale=en_US&apikey=u6asyvg57kuru6gbsu37wxbmfd4djv9y"
+        data = JSON.parse(HTTParty.get("https://us.api.battle.net/sc2/profile/#{id}/#{realm}/#{name}/?locale=en_US&apikey=u6asyvg57kuru6gbsu37wxbmfd4djv9y").body)
+      else
+        profile_data = File.read('lib/profile.json')
+        data = JSON.parse(profile_data)
+      end
       @display_name = data['displayName']
       @id = data['id']
       @realm = data['realm']
