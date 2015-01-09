@@ -3,7 +3,7 @@ require 'starcraft'
 module Starcraft
 
   class Profile
-    attr_reader :id, :realm, :display_name, :clan_name, :clan_tag, :profile_path, :portrait, :career, :season, :campaign, :swarm_levels, :rewards, :achievements, :ladders
+    attr_reader :id, :realm, :display_name, :clan_name, :clan_tag, :profile_path, :portrait, :career, :season, :campaign, :swarm_levels, :rewards, :achievements, :ladders, :ggtracker
 
     def initialize
     end
@@ -25,6 +25,8 @@ module Starcraft
         profile_data = File.read('lib/profile.json')
         data = JSON.parse(profile_data)
       end
+      ggtracker = Starcraft::GGTracker.new
+      ggtracker.bnet(name, id, realm)
       @display_name = data['displayName']
       @id = data['id']
       @realm = data['realm']
@@ -38,6 +40,7 @@ module Starcraft
       @swarm_levels = data['swarmLevels']
       @rewards = data['rewards']
       @achievements = data['achievements']
+      @ggtracker = ggtracker
       @ladders = nil
     end
 
@@ -46,8 +49,8 @@ module Starcraft
     end
 
     def basic_ladder_data
-      data = JSON.parse(File.read('lib/ladderlist.json'))
-      # data = JSON.parse(HTTParty.get("https://us.api.battle.net/sc2/profile/#{@id}/#{@realm}/#{@display_name}/ladders?locale=en_US&apikey=u6asyvg57kuru6gbsu37wxbmfd4djv9y").body)
+      # data = JSON.parse(File.read('lib/ladderlist.json'))
+      data = JSON.parse(HTTParty.get("https://us.api.battle.net/sc2/profile/#{@id}/#{@realm}/#{@display_name}/ladders?locale=en_US&apikey=u6asyvg57kuru6gbsu37wxbmfd4djv9y").body)
       ladders = []
       data['currentSeason'].each do |ladder_arr|
         next if ladder_arr['ladder'].length <= 0
@@ -64,8 +67,8 @@ module Starcraft
     def
 
     def full_ladder_data
-      data = JSON.parse(File.read('lib/ladderlist.json'))
-      # data = JSON.parse(HTTParty.get("https://us.api.battle.net/sc2/profile/#{@id}/#{@realm}/#{@display_name}/ladders?locale=en_US&apikey=u6asyvg57kuru6gbsu37wxbmfd4djv9y").body)
+      # data = JSON.parse(File.read('lib/ladderlist.json'))
+      data = JSON.parse(HTTParty.get("https://us.api.battle.net/sc2/profile/#{@id}/#{@realm}/#{@display_name}/ladders?locale=en_US&apikey=u6asyvg57kuru6gbsu37wxbmfd4djv9y").body)
       ladders = []
       data['currentSeason'].each do |ladder_type|
         ladder_type.each do |ladder|

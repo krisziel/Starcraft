@@ -29,8 +29,8 @@ describe Starcraft do
     profile = Starcraft::Profile.new
     character = ladder.teams[0].character[0]
     profile.full_data(character.display_name,character.id,character.realm)
-    expect(profile.display_name).to eq('lIBARCODEIl')
-    expect(profile.career['league']).to eq('PLATINUM')
+    expect(profile.display_name).to eq('KinkyOvi')
+    expect(profile.career['league']).to eq('DIAMOND')
   end
 
 end
