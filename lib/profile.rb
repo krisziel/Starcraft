@@ -19,7 +19,6 @@ module Starcraft
 
     def full_data(name, id, realm, *url)
       if url
-        # puts "https://us.api.battle.net/sc2/profile/#{id}/#{realm}/#{name}/?locale=en_US&apikey=u6asyvg57kuru6gbsu37wxbmfd4djv9y"
         data = JSON.parse(HTTParty.get("https://us.api.battle.net/sc2/profile/#{id}/#{realm}/#{name}/?locale=en_US&apikey=u6asyvg57kuru6gbsu37wxbmfd4djv9y").body)
       else
         profile_data = File.read('lib/profile.json')
@@ -49,7 +48,6 @@ module Starcraft
     end
 
     def basic_ladder_data
-      # data = JSON.parse(File.read('lib/ladderlist.json'))
       data = JSON.parse(HTTParty.get("https://us.api.battle.net/sc2/profile/#{@id}/#{@realm}/#{@display_name}/ladders?locale=en_US&apikey=u6asyvg57kuru6gbsu37wxbmfd4djv9y").body)
       ladders = []
       data['currentSeason'].each do |ladder_arr|

@@ -29,11 +29,11 @@ module Starcraft
     def bnet(name, id, realm)
       data = JSON.parse(HTTParty.get("http://api.ggtracker.com/api/v1/identities/find.json?profile_url=http://us.battle.net/sc2/en/profile/#{id}/#{realm}/#{name}/").body)
       if data['name']
-        parse_data data
+        get_identity data
       end
     end
 
-    def parse_data data
+    def get_identity data
       @leagues = ["bronze","silver","gold","platinum","diamond","master","grandmaster"]
       @id = data['id']
       @name = data['name']
@@ -79,5 +79,4 @@ module Starcraft
     end
 
   end
-
 end
