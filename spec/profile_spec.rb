@@ -23,7 +23,7 @@ describe Starcraft do
   end
 
   it "expects the clan tag to be correct" do
-    expect(profile.clan_tag).to eq("lIllI")
+    expect(profile.clan_tag).to eq("5CaRy")
   end
 
   it "expects career to have highest 1v1 rank as platinum" do
@@ -37,13 +37,13 @@ describe Starcraft do
 
   it "expects the ladder to have a league and id" do
     profile.basic_ladder_data
-    expect(profile.ladders[0].mmq).to eq("THREES")
-    expect(profile.ladders[0].id).to eq(178045)
+    expect(profile.ladders[0].mmq).to eq("FOURS")
+    expect(profile.ladders[0].id).to eq(181271)
   end
 
   it "expects the player to have five leagues" do
     profile.basic_ladder_data
-    expect(profile.ladders.length).to eq(6)
+    expect(profile.ladders.length).to eq(15)
   end
 
 end

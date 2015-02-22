@@ -30,7 +30,7 @@ describe Starcraft do
     character = ladder.teams[0].character[0]
     profile.full_data(character.display_name,character.id,character.realm)
     expect(profile.display_name).to eq('MilkTea')
-    expect(profile.career['league']).to eq('GOLD')
+    expect(profile.career['league']).to eq('PLATINUM')
   end
 
 end
